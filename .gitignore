@@ -10,6 +10,9 @@ lib-cov
 *.pid
 *.gz
 
+.idea
+.idea/**
+
 pids
 logs
 results

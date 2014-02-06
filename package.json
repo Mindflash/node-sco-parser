@@ -1,0 +1,29 @@
+{
+	"name": "node-sco-parser",
+	"version": "0.0.1",
+	"description": "A simple validator and parser for SCO zip files.",
+	"main": "index.js",
+	"directories": {
+		"test": "tests"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/Mindflash/node-scorm-validator.git"
+	},
+	"keywords": [
+		"SCORM",
+		"SCO"
+	],
+	"author": "Mindflash <npmjs@mindflash.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Mindflash/node-scorm-validator/issues"
+	},
+	"homepage": "https://github.com/Mindflash/node-scorm-validator",
+	"devDependencies": {
+		"tape": "~2.4.2"
+	}
+}

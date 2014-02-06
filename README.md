@@ -1,4 +1,3 @@
-node-scorm-validator
+node-sco-parser
 ====================
-
-A SCORM validator for node.js
+A simple validator and parser for SCO zip files.

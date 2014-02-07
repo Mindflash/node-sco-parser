@@ -3,6 +3,7 @@ var async = require('async');
 var fn = require('./helpers/functionHelper.js');
 var readSco = require('./readSco.js');
 var validateSco = require('./validateSco.js');
+var parseSco = require('./parseSco.js');
 
 function scoParser(params) {
 	params = params || {};
@@ -16,12 +17,13 @@ function scoParser(params) {
 		});
 	}
 
-	function parse() {
-		//
+	function parse(cb) {
+		return parseSco(params, cb);
 	}
 
 	return {
-		validate: validate
+		validate: validate,
+		parse: parse
 	}
 }
 

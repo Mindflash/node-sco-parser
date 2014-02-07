@@ -5,6 +5,7 @@ var test = require('tap').test;
 var readSco = require('../readSco.js');
 var testFolder = 'testFiles/readTests';
 var pathToExtractZip = 'testFiles/readTests/extractFolder';
+var rmrf = require('rimraf');
 
 test('Reading the SCO zip file will fail when initialized without params', function(t) {
 	readSco(null, function (err, result) {
@@ -70,8 +71,8 @@ test('Reading the SCO zip file will succeed when the file exists and is a zip fi
 	});
 
 	t.test('Deletes folder in which to unzip the files', function (t) {
-		child.execFile('rm', ['-rf', pathToExtractZip], {env: process.env}, function(err, stdout, stderr) {
-			if (err) t.fail('Failed to remove directory files were unzipped into');
+		rmrf(pathToExtractZip, function(err, result) {
+			t.notOk(err, "failed to remove directory where files were unzipped to");
 			t.end();
 		});
 	});

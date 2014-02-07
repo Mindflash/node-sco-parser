@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest identifier="Course_ID1" version="1.0" 
+       xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+       xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                           http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                           http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+		<adlcp:location>metadata.xml</adlcp:location> 
+	</metadata>
+	<organizations default="Course_ID1_ORG">
+		<organization identifier="Course_ID1_ORG">
+			<title>Captivate E-Learning Course</title>
+			<item identifier="SCO_ID1" isvisible="true" identifierref="SCO_ID1_RES">
+				<title>Course Object title</title>
+			</item>
+			<metadata>
+				<schema>ADL SCORM</schema>
+				<schemaversion>1.2</schemaversion>
+				<adlcp:location>metadata.xml</adlcp:location> 
+			</metadata>	
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="SCO_ID1_RES" type="webcontent" href="multiscreen.html" adlcp:scormtype="sco">
+			
+			<metadata>
+				<schema>ADL SCORM</schema>
+				<schemaversion>1.2</schemaversion>
+				<adlcp:location>metadata.xml</adlcp:location> 
+			</metadata>
+			
+			<file href="captivate_noquiz_SWFandHTML5output.swf"/>
+		    <file href="captivate_noquiz_SWFandHTML5output.htm"/>
+			<file href="scormdriver.js"/>
+			<file href="browsersniff.js"/>
+			
+<file href="SCORM_utilities.js"/> 
+<file href="Utilities.js"/> 
+<file href="standard.js"/> 
+<file href="captivate.css"/> 
+<file href="ar/Mouse.mp3"/> 
+<file href="ar/dblmouse.mp3"/> 
+<file href="assets/Playbar_icons/Play_icon.png"/> 
+<file href="assets/Playbar_icons/ccClose.png"/> 
+<file href="assets/TOC_icons/collapseIcon.png"/> 
+<file href="assets/TOC_icons/expandIcon.png"/> 
+<file href="assets/TOC_icons/photo.png"/> 
+<file href="assets/css/CPLibrary.css"/> 
+<file href="assets/css/CPQuiz.css"/> 
+<file href="assets/css/dd.css"/> 
+<file href="assets/css/smoothness/images/Thumbs.db"/> 
+<file href="assets/css/smoothness/images/scrubber.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png"/> 
+<file href="assets/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png"/> 
+<file href="assets/css/smoothness/images/ui-icons_222222_256x240.png"/> 
+<file href="assets/css/smoothness/images/ui-icons_2e83ff_256x240.png"/> 
+<file href="assets/css/smoothness/images/ui-icons_454545_256x240.png"/> 
+<file href="assets/css/smoothness/images/ui-icons_888888_256x240.png"/> 
+<file href="assets/css/smoothness/images/ui-icons_cd0a0a_256x240.png"/> 
+<file href="assets/css/smoothness/jquery-ui-1.8.14.custom.css"/> 
+<file href="assets/htmlimages/arrow_right.gif"/> 
+<file href="assets/htmlimages/checkBox_disabled.png"/> 
+<file href="assets/htmlimages/checkBox_normal.png"/> 
+<file href="assets/htmlimages/checkBox_selected.png"/> 
+<file href="assets/htmlimages/checkBox_selectedDisabled.png"/> 
+<file href="assets/htmlimages/closeReviewButton.png"/> 
+<file href="assets/htmlimages/correct_answer_normal.png"/> 
+<file href="assets/htmlimages/correct_answer_small.png"/> 
+<file href="assets/htmlimages/correct_question_normal.png"/> 
+<file href="assets/htmlimages/correct_question_small.png"/> 
+<file href="assets/htmlimages/dd_arrow.gif"/> 
+<file href="assets/htmlimages/hotspot.gif"/> 
+<file href="assets/htmlimages/hotspot_correct_answer_normal.png"/> 
+<file href="assets/htmlimages/hotspot_incorrect_answer_normal.png"/> 
+<file href="assets/htmlimages/img_trans.gif"/> 
+<file href="assets/htmlimages/incorrect_answer_normal.png"/> 
+<file href="assets/htmlimages/incorrect_answer_small.png"/> 
+<file href="assets/htmlimages/incorrect_question_normal.png"/> 
+<file href="assets/htmlimages/incorrect_question_small.png"/> 
+<file href="assets/htmlimages/movieexpire.png"/> 
+<file href="assets/htmlimages/partial_correct_question_normal.png"/> 
+<file href="assets/htmlimages/partial_correct_question_small.png"/> 
+<file href="assets/htmlimages/placeholder.png"/> 
+<file href="assets/htmlimages/radioButton_disabled.png"/> 
+<file href="assets/htmlimages/radioButton_normal.png"/> 
+<file href="assets/htmlimages/radioButton_selected.png"/> 
+<file href="assets/htmlimages/radioButton_selectedDisabled.png"/> 
+<file href="assets/htmlimages/sequenceReview.png"/> 
+<file href="assets/htmlimages/skip_answer_normal.png"/> 
+<file href="assets/htmlimages/skip_answer_small.png"/> 
+<file href="assets/htmlimages/skip_question_normal.png"/> 
+<file href="assets/htmlimages/skip_question_small.png"/> 
+<file href="assets/htmlimages/toc.png"/> 
+<file href="assets/js/OpenAjaxManagedHub-all.js"/> 
+<file href="assets/js/cp.js"/> 
+<file href="assets/js/jquery-1.5.1.min.js"/> 
+<file href="assets/js/jquery-1.6.1.min.js"/> 
+<file href="assets/js/jquery-ui-1.8.14.custom.min.js"/> 
+<file href="assets/js/uncompressed-jquery-ui-1.8.14.custom.js"/> 
+<file href="assets/js/uncompressed.jquery.dd.js"/> 
+<file href="assets/playbar/PlaybarIcons/AudioOff.png"/> 
+<file href="assets/playbar/PlaybarIcons/AudioOn.png"/> 
+<file href="assets/playbar/PlaybarIcons/BackGround.png"/> 
+<file href="assets/playbar/PlaybarIcons/Backward.png"/> 
+<file href="assets/playbar/PlaybarIcons/CC.png"/> 
+<file href="assets/playbar/PlaybarIcons/Color.png"/> 
+<file href="assets/playbar/PlaybarIcons/ColorSmall.png"/> 
+<file href="assets/playbar/PlaybarIcons/Exit.png"/> 
+<file href="assets/playbar/PlaybarIcons/FastForward.png"/> 
+<file href="assets/playbar/PlaybarIcons/FastForward1.png"/> 
+<file href="assets/playbar/PlaybarIcons/FastForward2.png"/> 
+<file href="assets/playbar/PlaybarIcons/Forward.png"/> 
+<file href="assets/playbar/PlaybarIcons/Glow.png"/> 
+<file href="assets/playbar/PlaybarIcons/GlowSmall.png"/> 
+<file href="assets/playbar/PlaybarIcons/Height.png"/> 
+<file href="assets/playbar/PlaybarIcons/InnerStroke.png"/> 
+<file href="assets/playbar/PlaybarIcons/InnerStrokeSmall.png"/> 
+<file href="assets/playbar/PlaybarIcons/Pause.png"/> 
+<file href="assets/playbar/PlaybarIcons/Play.png"/> 
+<file href="assets/playbar/PlaybarIcons/Play_icon.png"/> 
+<file href="assets/playbar/PlaybarIcons/Progress.png"/> 
+<file href="assets/playbar/PlaybarIcons/Rewind.png"/> 
+<file href="assets/playbar/PlaybarIcons/Shade.png"/> 
+<file href="assets/playbar/PlaybarIcons/ShadeSmall.png"/> 
+<file href="assets/playbar/PlaybarIcons/Stroke.png"/> 
+<file href="assets/playbar/PlaybarIcons/StrokeSmall.png"/> 
+<file href="assets/playbar/PlaybarIcons/TOC.png"/> 
+<file href="assets/playbar/PlaybarIcons/Thumb.png"/> 
+<file href="assets/playbar/PlaybarIcons/ThumbBase.png"/> 
+<file href="assets/playbar/playbarScript.js"/> 
+<file href="assets/playbar/playbarStyle.css"/> 
+<file href="assets/toc/tocIcons/blankBookmark.png"/> 
+<file href="assets/toc/tocIcons/clear.png"/> 
+<file href="assets/toc/tocIcons/expander.png"/> 
+<file href="assets/toc/tocIcons/fullBookmark.png"/> 
+<file href="assets/toc/tocIcons/go.png"/> 
+<file href="assets/toc/tocIcons/infoClose.png"/> 
+<file href="assets/toc/tocIcons/moreinfo.png"/> 
+<file href="assets/toc/tocIcons/searchBtnNormal.png"/> 
+<file href="assets/toc/tocIcons/searchBtnSelect.png"/> 
+<file href="assets/toc/tocIcons/visited.png"/> 
+<file href="assets/toc/tocStyle.css"/> 
+<file href="dr/1113.png"/> 
+<file href="dr/3983.png"/> 
+<file href="dr/4013.png"/> 
+<file href="dr/4033.png"/> 
+<file href="dr/4048.png"/> 
+<file href="dr/4050.png"/> 
+<file href="dr/4066.png"/> 
+<file href="dr/4097.png"/> 
+<file href="dr/4127.png"/> 
+<file href="dr/4129.png"/> 
+<file href="dr/4153.png"/> 
+<file href="dr/4177.png"/> 
+<file href="dr/4208.png"/> 
+<file href="dr/4228.png"/> 
+<file href="dr/4252.png"/> 
+<file href="dr/Slide3931_thnail.jpg"/> 
+<file href="dr/Slide3986_thnail.jpg"/> 
+<file href="dr/Slide4036_thnail.jpg"/> 
+<file href="dr/Slide4053_thnail.jpg"/> 
+<file href="dr/Slide4069_thnail.jpg"/> 
+<file href="dr/Slide4100_thnail.jpg"/> 
+<file href="dr/Slide4132_thnail.jpg"/> 
+<file href="dr/Slide4156_thnail.jpg"/> 
+<file href="dr/Slide4180_thnail.jpg"/> 
+<file href="dr/Slide4211_thnail.jpg"/> 
+<file href="dr/Slide4231_thnail.jpg"/> 
+<file href="dr/Slide4255_thnail.jpg"/> 
+<file href="dr/Slide4276_thnail.jpg"/> 
+<file href="dr/SubTitle_AutoShape_1.png"/> 
+<file href="dr/Text_Caption_1.png"/> 
+<file href="dr/Text_Caption_2.png"/> 
+<file href="dr/Text_Caption_3.png"/> 
+<file href="dr/Text_Caption_4.png"/> 
+<file href="dr/Text_Caption_5.png"/> 
+<file href="dr/Text_Caption_6.png"/> 
+<file href="dr/Text_Caption_7.png"/> 
+<file href="dr/Text_Caption_8.png"/> 
+<file href="dr/Text_Caption_9.png"/> 
+<file href="dr/Title_AutoShape_1.png"/> 
+<file href="dr/defaultloading.png"/> 
+<file href="dr/sfs0.png"/> 
+<file href="index_SCORM.html"/> 
+<file href="multiscreen.html"/>
+		</resource>
+	</resources>
+</manifest>

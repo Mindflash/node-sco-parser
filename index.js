@@ -3,7 +3,7 @@ var _ = require('lodash');
 var async = require('async');
 var unpackScoZip = require('./unpackScoZip.js');
 var readManifestXml = require('./readManifestXml.js');
-var parseSco = require('./parseSco.js');
+var parseManifestXml = require('./parseManifestXml.js');
 
 function scoParser(params) {
 	params = params || {};
@@ -21,7 +21,7 @@ function scoParser(params) {
 	}
 
 	function parse(cb) {
-		return parseSco(params, cb);
+		parseManifestXml(imsManifestJSON, cb);
 	}
 
 	return {

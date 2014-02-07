@@ -1,5 +1,5 @@
 {
-	"name": "sco-parser",
+	"name": "node-sco-parser",
 	"version": "0.0.1",
 	"description": "A simple validator and parser for SCO zip files.",
 	"main": "index.js",
@@ -24,6 +24,10 @@
 	},
 	"homepage": "https://github.com/Mindflash/node-scorm-validator",
 	"devDependencies": {
-		"tap": "~2.4.2"
+		"tap": "~0.4.8"
+	},
+	"dependencies": {
+		"adm-zip": "~0.4.4",
+		"async": "~0.2.10"
 	}
 }

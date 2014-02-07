@@ -12,7 +12,7 @@ module.exports = function (params, cb) {
 		try {
 			parser.parseString(data, function (err, result) {
 				if (err) return cb(err);
-				cb();
+				cb(null, result);
 			});
 		} catch (err) {
 			// Need to catch errors here. The parser appears to sometimes call the callback and then throw an error.

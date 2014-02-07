@@ -1,19 +1,22 @@
 "use strict";
+var _ = require('lodash');
 var async = require('async');
-var fn = require('./helpers/functionHelper.js');
-var readSco = require('./readSco.js');
-var validateSco = require('./validateSco.js');
+var unpackScoZip = require('./unpackScoZip.js');
+var readManifestXml = require('./readManifestXml.js');
 var parseSco = require('./parseSco.js');
 
 function scoParser(params) {
 	params = params || {};
+	var imsManifestJSON;
 
 	function validate(cb) {
-		async.series([
-			fn.wrapWithCb(readSco, params),
-			fn.wrapWithCb(validateSco, params)
-		], function (err, result) {
-			cb(err, result);
+		async.series({
+			unpackScoZip: _.curry(unpackScoZip)(params),
+			manifest: _.curry(readManifestXml)(params)
+		}, function (err, result) {
+			if(err) cb(err);
+			imsManifestJSON = result.manifest;
+			cb(null, imsManifestJSON);
 		});
 	}
 

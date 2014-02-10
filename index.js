@@ -1,6 +1,7 @@
 "use strict";
 var _ = require('lodash');
 var async = require('async');
+var rmrf = require('rimraf');
 var unpackScoZip = require('./unpackScoZip.js');
 var readManifestXml = require('./readManifestXml.js');
 var parseManifestXml = require('./parseManifestXml.js');
@@ -24,9 +25,15 @@ function scoParser(params) {
 		parseManifestXml(imsManifestJSON, cb);
 	}
 
+	function destroy(cb) {
+		if(!params.pathToExtractZip) return cb();
+		rmrf(params.pathToExtractZip, cb);
+	}
+
 	return {
 		validate: validate,
-		parse: parse
+		parse: parse,
+		destroy: destroy
 	}
 }
 

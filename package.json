@@ -24,13 +24,13 @@
 	},
 	"homepage": "https://github.com/Mindflash/node-scorm-validator",
 	"devDependencies": {
-		"tap": "~0.4.8",
-		"rimraf": "~2.2.6"
+		"tap": "~0.4.8"
 	},
 	"dependencies": {
 		"adm-zip": "~0.4.4",
 		"async": "~0.2.10",
 		"lodash": "~2.4.1",
+		"rimraf": "~2.2.6",
 		"xml2js": "~0.4.1"
 	}
 }

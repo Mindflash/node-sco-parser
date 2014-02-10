@@ -4,7 +4,6 @@ var test = require('tap').test;
 var scoParserIndex = require('../index.js');
 var testFolder = 'testFiles/unpackScoZipTests';
 var pathToExtractZip = 'testFiles/unpackScoZipTests/extractFolder';
-var rmrf = require('rimraf');
 
 var params = {
 	pathToScoZip: testFolder + '/articulate_sco_with_quiz.zip',
@@ -36,7 +35,7 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
 	});
 
 	t.test('Deletes folder in which to unzip the files', function (t) {
-		rmrf(pathToExtractZip, function(err, result) {
+		scoParser.destroy(function (err, result) {
 			t.notOk(err, "failed to remove directory where files were unzipped to");
 			t.end();
 		});

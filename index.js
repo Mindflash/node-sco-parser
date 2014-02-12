@@ -14,7 +14,7 @@ function scoParser(params) {
 			unpackScoZip: _.curry(unpackScoZip)(params),
 			manifest: _.curry(readManifestXml)(params)
 		}, function (err, result) {
-			if(err) cb(err);
+			if (err) cb(err);
 			cb(null, result.manifest);
 		});
 	}
@@ -24,7 +24,7 @@ function scoParser(params) {
 	}
 
 	function destroy(cb) {
-		if(!params.pathToExtractZip) return cb();
+		if (!params.pathToExtractZip) return cb();
 		rmrf(params.pathToExtractZip, cb);
 	}
 

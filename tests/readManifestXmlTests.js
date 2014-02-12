@@ -4,7 +4,7 @@ var readManifestXml = require('../readManifestXml.js');
 var testFolder = 'testFiles/readManifestXmlTests';
 var _ = require('lodash');
 
-test('Validating the SCO will fail when initialized without params', function(t) {
+test('Validating the SCO will fail when initialized without params', function (t) {
 	readManifestXml(null, function (err, result) {
 		t.ok(err, 'Should error');
 		t.equal(err, 'Requires a path in which to find the SCO manifest XML', 'Should give message about needing a path for the SCO XML');
@@ -12,7 +12,7 @@ test('Validating the SCO will fail when initialized without params', function(t)
 	});
 });
 
-test('Validating the SCO will fail when the path in which to find the imsmanifest.xml does not exist', function(t) {
+test('Validating the SCO will fail when the path in which to find the imsmanifest.xml does not exist', function (t) {
 	var params = {pathToExtractZip: '/fake/path'};
 	readManifestXml(params, function (err, result) {
 		t.ok(err, 'Should error');
@@ -22,7 +22,7 @@ test('Validating the SCO will fail when the path in which to find the imsmanifes
 	});
 });
 
-test('Validating the SCO will fail when imsmanifest.xml is not actually XML', function(t) {
+test('Validating the SCO will fail when imsmanifest.xml is not actually XML', function (t) {
 	var params = {pathToExtractZip: testFolder + '/notXML'};
 	readManifestXml(params, function (err, result) {
 		t.ok(err, 'Should error');
@@ -31,7 +31,7 @@ test('Validating the SCO will fail when imsmanifest.xml is not actually XML', fu
 	});
 });
 
-test('Validating the SCO will succeed when imsmanifest.xml is valid XML', function(t) {
+test('Validating the SCO will succeed when imsmanifest.xml is valid XML', function (t) {
 	var params = {pathToExtractZip: testFolder + '/isXML'};
 	readManifestXml(params, function (err, result) {
 		t.notOk(err, 'Should not error');

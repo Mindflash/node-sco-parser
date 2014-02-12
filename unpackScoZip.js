@@ -11,6 +11,6 @@ module.exports = function (params, cb) {
 		zip.extractAllTo(params.pathToExtractZip, true);
 		cb();
 	} catch (err) {
-		return cb(err, null);
+		return cb(err);
 	}
 };

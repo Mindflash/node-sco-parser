@@ -1,7 +1,7 @@
 var test = require('tap').test;
 var parseManifestXml = require('../parseManifestXml.js');
 
-test('Finds SCO HTML file href in Articulate SCO', function(t) {
+test('Finds SCO HTML file href in Articulate SCO', function (t) {
 	t.test('Finds quiz in SCO', function (t) {
 		var params = {pathToExtractZip: 'testFiles/parseManifestXmlTests/articulate/scoWithQuiz'};
 		parseManifestXml(params, function (err, result) {

@@ -6,7 +6,7 @@ var testFolder = 'testFiles/unpackScoZipTests';
 var pathToExtractZip = 'testFiles/unpackScoZipTests/extractFolder';
 var rmrf = require('rimraf');
 
-test('Unpacking the SCO zip file will fail when initialized without params', function(t) {
+test('Unpacking the SCO zip file will fail when initialized without params', function (t) {
 	unpackScoZip(null, function (err, result) {
 		t.ok(err, 'Should error');
 		t.equal(err, 'Requires a path to the SCO\'s zip file', 'Should give needs a SCO path message');
@@ -14,7 +14,7 @@ test('Unpacking the SCO zip file will fail when initialized without params', fun
 	});
 });
 
-test('Unpacking the SCO zip file will fail when initialized without a path to the SCO\'s zip file', function(t) {
+test('Unpacking the SCO zip file will fail when initialized without a path to the SCO\'s zip file', function (t) {
 	var params = {pathToExtractZip: pathToExtractZip};
 	unpackScoZip(params, function (err, result) {
 		t.ok(err, 'Should error');
@@ -23,7 +23,7 @@ test('Unpacking the SCO zip file will fail when initialized without a path to th
 	});
 });
 
-test('Unpacking the SCO zip file will fail when initialized without a path in which to extract the zip', function(t) {
+test('Unpacking the SCO zip file will fail when initialized without a path in which to extract the zip', function (t) {
 	var params = {pathToScoZip: testFolder + '/articulate_sco_with_quiz.zip'};
 	unpackScoZip(params, function (err, result) {
 		t.ok(err, 'Should error');
@@ -32,7 +32,7 @@ test('Unpacking the SCO zip file will fail when initialized without a path in wh
 	});
 });
 
-test('Unpacking the SCO zip file will fail when path to SCO zip does not exist', function(t) {
+test('Unpacking the SCO zip file will fail when path to SCO zip does not exist', function (t) {
 	var params = {
 		pathToScoZip: '/path/to/fakepath.zip',
 		pathToExtractZip: pathToExtractZip
@@ -44,7 +44,7 @@ test('Unpacking the SCO zip file will fail when path to SCO zip does not exist',
 	});
 });
 
-test('Unpacking the SCO zip file will fail when the file is not a zip file', function(t) {
+test('Unpacking the SCO zip file will fail when the file is not a zip file', function (t) {
 	var params = {
 		pathToScoZip: testFolder + '/TheDude.jpg',
 		pathToExtractZip: pathToExtractZip
@@ -56,7 +56,7 @@ test('Unpacking the SCO zip file will fail when the file is not a zip file', fun
 	});
 });
 
-test('Unpacking the SCO zip file will succeed when the file exists and is a zip file', function(t) {
+test('Unpacking the SCO zip file will succeed when the file exists and is a zip file', function (t) {
 	t.test('Should extract the zip', function (t) {
 		var params = {
 			pathToScoZip: testFolder + '/articulate_sco_with_quiz.zip',
@@ -70,7 +70,7 @@ test('Unpacking the SCO zip file will succeed when the file exists and is a zip 
 	});
 
 	t.test('Deletes folder in which to unzip the files', function (t) {
-		rmrf(pathToExtractZip, function(err, result) {
+		rmrf(pathToExtractZip, function (err, result) {
 			t.notOk(err, "failed to remove directory where files were unzipped to");
 			t.end();
 		});

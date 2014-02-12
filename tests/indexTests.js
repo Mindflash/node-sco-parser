@@ -8,7 +8,7 @@ var params = {
 	pathToExtractZip: 'testFiles/unpackScoZipTests/extractFolder'
 };
 
-test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses it for information', function(t) {
+test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses it for information', function (t) {
 	var scoParser = scoParserIndex(params);
 	t.test('Should extract SCO zip file and validate imsmanifest.xml', function (t) {
 		scoParser.validate(function (err, result) {
@@ -19,8 +19,8 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
 		});
 	});
 
-	t.test('Should parse imsmanifest.xml to find base html file', function(t) {
-		scoParser.parse(function (err, result) {				
+	t.test('Should parse imsmanifest.xml to find base html file', function (t) {
+		scoParser.parse(function (err, result) {
 			t.notOk(err, 'Should not error');
 			t.ok(result, 'Should receive information parsed from the manifest XML');
 			t.equal(result.scoHtmlHref, 'index_lms.html', 'Should receive the SCO\'s start-up HTML file from the manifest');

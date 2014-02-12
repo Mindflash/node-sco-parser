@@ -1,7 +1,7 @@
 "use strict";
 var fs = require('fs');
 var test = require('tap').test;
-var unpackScoZip = require('../unpackScoZip.js');
+var unpackScoZip = require('../lib/unpackScoZip');
 var testFolder = 'testFiles/unpackScoZipTests';
 var pathToExtractZip = 'testFiles/unpackScoZipTests/extractFolder';
 var rmrf = require('rimraf');

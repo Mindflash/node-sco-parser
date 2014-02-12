@@ -2,9 +2,9 @@
 var _ = require('lodash');
 var async = require('async');
 var rmrf = require('rimraf');
-var unpackScoZip = require('./unpackScoZip.js');
-var readManifestXml = require('./readManifestXml.js');
-var parseManifestXml = require('./parseManifestXml.js');
+var unpackScoZip = require('./lib/unpackScoZip');
+var readManifestXml = require('./lib/readManifestXml');
+var parseManifestXml = require('./lib/parseManifestXml');
 
 function scoParser(params) {
 	params = params || {};

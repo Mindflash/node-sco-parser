@@ -1,5 +1,5 @@
 var test = require('tap').test;
-var parseManifestXml = require('../parseManifestXml.js');
+var parseManifestXml = require('../lib/parseManifestXml');
 
 test('Finds SCO HTML file href in Articulate SCO', function (t) {
 	t.test('Finds quiz in SCO', function (t) {

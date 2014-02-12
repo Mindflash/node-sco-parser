@@ -1,6 +1,6 @@
 "use strict";
 var test = require('tap').test;
-var readManifestXml = require('../readManifestXml.js');
+var readManifestXml = require('../lib/readManifestXml');
 var testFolder = 'testFiles/readManifestXmlTests';
 var _ = require('lodash');
 

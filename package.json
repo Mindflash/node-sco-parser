@@ -1,6 +1,6 @@
 {
 	"name": "sco-parser",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A simple validator and parser for SCO zip files.",
 	"main": "index.js",
 	"directories": {
@@ -15,7 +15,9 @@
 	},
 	"keywords": [
 		"SCORM",
-		"SCO"
+		"SCO",
+		"SCORM 1.2",
+		"LMS"
 	],
 	"author": "Mindflash <npmjs@mindflash.com>",
 	"license": "MIT",
@@ -31,6 +33,8 @@
 		"async": "~0.2.10",
 		"lodash": "~2.4.1",
 		"rimraf": "~2.2.6",
-		"xml2js": "~0.4.1"
+		"xml2js": "~0.4.1",
+		"xpath": "0.0.5",
+		"xmldom": "~0.1.19"
 	}
 }

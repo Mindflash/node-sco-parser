@@ -1,45 +1,34 @@
 "use strict";
+
+var xpath = require('xpath');
+var dom = require('xmldom').DOMParser;
+var fs = require('fs');
 var _ = require('lodash');
-var async = require('async');
 
-module.exports = function(manifestJSON, cb) {
-	async.series({
-		scoHtmlHref: getScoHtmlHref
-	}, function (err, result) {
-		if(err) cb(err);
-		cb(null, result);
-	});
+module.exports = function(params, cb) {
+	var params = params || {};
+	if (!params.pathToExtractZip) return cb('Requires a path in which to find the SCO manifest XML');
 
-	function getScoHtmlHref(cb) {
-		var scoResource = getScoResource(manifestJSON);
-		if(!scoResource) return cb(null);
-		var href = scoResource.href;
-		if(!href || href == '') return cb(null);
-		cb(null, href);
-	}
+	fs.readFile(params.pathToExtractZip + '/imsmanifest.xml', 'ascii', function(err, data) {
+		if (err) return cb(err);
 
-	function getScoResource(json) {
-		if(!json) return null;
-		var manifest = json.manifest;
-		if(!manifest) return null;
-		var resources = manifest.resources;
+		var doc = new dom().parseFromString(data.substring(2, data.length));
 
-		var scoResource = null;
-		_.each(resources, function(resourcesItem) {
-			if(!resourcesItem) return;
-			_.each(resourcesItem, function (resourceItem) {
-				if(!resourceItem) return;
-				_.each(resourceItem, function (resourceInfoItem) {
-					if(!resourceInfoItem) return;
-					var resource = resourceInfoItem.$;
-					if(!resource) return;
-					var type = resource.type ? resource.type.toLowerCase() : null;
-					var scormType = resource['adlcp:scormtype'] ? resource['adlcp:scormtype'].toLowerCase() : null;
-					if(type != 'webcontent' || scormType != 'sco') return;
-					scoResource = resource;
-				});
-			});
+		function findIndexFile() {
+			var nodes = xpath.select("(//resource[@href])[1]", doc);
+			var attr = nodes[0].attributes;
+			var filename = attr[_.findKey(attr, { 'name': 'href' })].value;
+			return filename;
+		}
+
+		function findQuizCount() {
+			var nodes = xpath.select("//*[name()='adlcp:masteryscore']", doc);
+			return nodes.length;
+		}
+
+		return cb(null, {
+			scoHtmlHref: findIndexFile(),
+			quizCount: findQuizCount()
 		});
-		return scoResource;
-	}
+	});
 };

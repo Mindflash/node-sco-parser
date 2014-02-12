@@ -8,7 +8,6 @@ var parseManifestXml = require('./parseManifestXml.js');
 
 function scoParser(params) {
 	params = params || {};
-	var imsManifestJSON;
 
 	function validate(cb) {
 		async.series({
@@ -16,13 +15,12 @@ function scoParser(params) {
 			manifest: _.curry(readManifestXml)(params)
 		}, function (err, result) {
 			if(err) cb(err);
-			imsManifestJSON = result.manifest;
-			cb(null, imsManifestJSON);
+			cb(null, result.manifest);
 		});
 	}
 
 	function parse(cb) {
-		parseManifestXml(imsManifestJSON, cb);
+		parseManifestXml(params, cb);
 	}
 
 	function destroy(cb) {

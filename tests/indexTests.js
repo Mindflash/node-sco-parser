@@ -21,7 +21,7 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
 		});
 	});
 
-	/*t.test('Should parse imsmanifest.xml to find base html file', function (t) {
+	t.test('Should parse imsmanifest.xml to find base html file', function (t) {
 		scoParser.parse(function (err, result) {
 			t.notOk(err, 'Should not error');
 			t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -29,7 +29,14 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
 			t.equal(result.quizCount, 1, 'Finds a quiz in the sco');
 			t.end();
 		})
-	});*/
+	});
+
+	t.test('Should process SCO', function (t) {
+		scoParser.process(function (err, result) {
+			t.notOk(err, 'Should not error');
+			t.end();
+		});
+	});
 
 	t.test('Deletes folder in which to unzip the files', function (t) {
 		scoParser.destroy(function (err, result) {

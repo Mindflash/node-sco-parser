@@ -79,6 +79,34 @@ test('Successfully modifies a SCO that has the Captivate SCORM_utilities.js', fu
 	t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
 });
 
+test('Does not error when referencing a SCO that doesn\'t have the Storyline story.html', function (t) {
+	t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('testFiles/processScoTests/nonSpecificOutput'));
+
+	t.test('Does not error when referencing a SCO that doesn\'t have the Storyline story.html', function (t) {
+		processSco({pathOfManifest: pathToCopyFiles + '/imsmanifest.xml'}, function (err, result) {
+			t.notOk(err, 'Should not error');
+			t.end();
+		});
+	});
+
+	t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+});
+
+test('Successfully modifies a SCO that has the Storyline story.html', function (t) {
+	t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('testFiles/processScoTests/storylineHtml5Output'));
+
+	t.test('Should find modfied text in the Storyline story.html', function (t) {
+		processSco({pathOfManifest: pathToCopyFiles + '/imsmanifest.xml'}, function (err, result) {
+			t.notOk(err, 'Should not error');
+			var playerCompiledJsString = fs.readFileSync(pathToCopyFiles + '/story.html', {encoding: 'utf8'});
+			t.ok(playerCompiledJsString.indexOf('g_strWMode = "opaque"') >= 0, 'Should find g_strWMode config now set to opaque');
+			t.end();
+		});
+	});
+
+	t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+});
+
 function copyFilesToProcessingLocation(pathOfTestFiles ,t) {
 	fstools.copy(pathOfTestFiles, pathToCopyFiles, function (err) {
 		if (err) t.fail('Failed to copy files to process');

@@ -36,6 +36,7 @@ test('Parses expected information from Articulate SCO with quiz', function (t) {
 		t.equal(result.scoHtmlHref, 'index_lms.html', 'got a starting point');
 		t.equal(result.quizCount, 1, 'Recognize that a quiz exists in the sco');
 		t.equal(result.thumbnailHref, 'story_content/thumbnail.jpg', 'Should find thumbnail');
+		t.ok(result.filePaths.indexOf('story_content/slides/61HGkVRQEMz.swf') >= 0, 'Should find file referenced in manifest');
 		t.end();
 	});
 });
@@ -49,6 +50,7 @@ test('Parses expected information from Articulate SCO without quiz', function (t
 		t.equal(result.scoHtmlHref, 'index_lms.html', 'got a starting point');
 		t.equal(result.quizCount, 0, 'Recognize that no quiz exists in the sco');
 		t.equal(result.thumbnailHref, 'story_content/thumbnail.jpg', 'Should find thumbnail');
+		t.ok(result.filePaths.indexOf('story_content/6hXDgtzkd44_X_80_DX278_DY278.swf') >= 0, 'Should find file referenced in manifest');
 		t.end();
 	});
 });
@@ -60,10 +62,9 @@ test('Parses expected information from Captivate SCO with quiz', function (t) {
 		t.ok(result, 'Should receive information parsed from the manifest XML');
 		t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
 		t.equal(result.scoHtmlHref, 'attempted_passedfailed_50per.htm', 'got a starting point');
-		// Looks like we're failing to find a quiz in Captivate SCOs that have quizzes right now. Will need to figure out
-		// why and fix this and add this test back.
-		//t.equal(result.quizCount, 1, 'Recognize that a quiz exists in the sco');
+		t.equal(result.quizCount, 0, 'Recognize that even though a quiz exists in the sco we can\'t determine this in Captivate');
 		t.notOk(result.thumbnailHref, 'Should not find thumbnail');
+		t.ok(result.filePaths.indexOf('attempted_passedfailed_50per.swf') >= 0, 'Should find file referenced in manifest');
 		t.end();
 	});
 });
@@ -77,6 +78,7 @@ test('Parses expected information from Captivate SCO without quiz', function (t)
 		t.equal(result.scoHtmlHref, 'multiscreen.html', 'got a starting point');
 		t.equal(result.quizCount, 0, 'Recognize that no quiz exists in the sco');
 		t.notOk(result.thumbnailHref, 'Should not find thumbnail');
+		t.ok(result.filePaths.indexOf('captivate_noquiz_SWFandHTML5output.swf') >= 0, 'Should find file referenced in manifest');
 		t.end();
 	});
 });

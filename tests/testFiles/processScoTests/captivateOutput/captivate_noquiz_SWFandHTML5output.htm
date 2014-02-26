@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- Copyright [2012] Adobe Systems Incorporated.  All rights reserved -->
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="captivate.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Captivate E-Learning Course</title>
+		
+		<!-- Include external JS files -->
+		<script language="JavaScript1.2" src="standard.js" 			></script>
+		<script language="JavaScript1.2" src="scormdriver.js"		></script>
+		<script language="JavaScript1.2" src="SCORM_utilities.js" 	></script>
+		<script language="JavaScript1.2" src="Utilities.js" 		></script>
+		
+		
+		<script language="JavaScript1.2">
+			//Register event handlers
+			window.onkeypress  		= CheckForDebugCommand;
+			window.onload 			= OnloadActivities;
+			window.onbeforeunload 	= DoFinish; 
+			window.onunload 		= DoFinish;
+			blnDebug 				= false ;
+		</script>
+	
+	</head>
+	
+	<body>
+			<div id = "CaptivateContent">
+				<noscript>
+					This course requires JavaScript to be enabled in your browser. 
+					Please enable JavaScript, then relaunch the course.
+				</noscript>
+			</div>
+	</body>
+
+</html>

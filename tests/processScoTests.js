@@ -89,6 +89,22 @@ test('Successfully modifies a SCO that has the Captivate SCORM_utilities.js', fu
 	t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
 });
 
+test('Successfully modifies a SCO that has the Captivate htm/html file that contains the CaptivateContent ID on one of its elements', function (t) {
+	t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('testFiles/processScoTests/captivateOutput'));
+
+	t.test('Should find modfied text in the Captivate SCORM_utilities.js', function (t) {
+		processSco({pathOfManifest: pathToCopyFiles + '/imsmanifest.xml'}, function (err, result) {
+			t.notOk(err, 'Should not error');
+			var modifiedHtml = fs.readFileSync(pathToCopyFiles + '/captivate_noquiz_SWFandHTML5output.htm', {encoding: 'utf8'});
+			console.log(JSON.stringify(modifiedHtml));
+			t.ok(modifiedHtml.match(/<head>\s*<style>\s*html\s*\{\s*height:\s*100%\s*\}\s*body\s*\{\s*height:\s*100%;\s*width:\s*100%;\s*display:\s*table;\s*margin:\s*0\s*\}\s*#CaptivateContent\s*\{\s*display:\s*table-cell\s*;\s*height:\s*100%\s*;\s*vertical-align:\s*middle\s*}\s*<\/style>/), 'Should find CSS added to the head');
+			t.end();
+		});
+	});
+
+	t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+});
+
 test('Does not error when referencing a SCO that doesn\'t have the Storyline story.html', function (t) {
 	t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('testFiles/processScoTests/nonSpecificOutput'));
 

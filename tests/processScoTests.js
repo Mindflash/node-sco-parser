@@ -49,11 +49,10 @@ test('Successfully modifies a SCO that has the Storyline mobile/player_compiled.
 		processSco({pathOfManifest: pathToCopyFiles + '/imsmanifest.xml'}, function (err, result) {
 			t.notOk(err, 'Should not error');
 			var playerCompiledJsString = fs.readFileSync(pathToCopyFiles + '/mobile/player_compiled.js', {encoding: 'utf8'});
-			t.equal(playerCompiledJsString.indexOf('var selfTop=self;'), 0, 'Should find JS added at beginning of the file');
-			t.ok(playerCompiledJsString.indexOf('selfTop.', 20) > 0, 'Should find other instances of selfTop from the replacement later in the file');
-			t.ok(playerCompiledJsString.indexOf('var k=j-window.innerHeight') == -1, 'Should have removed this code');
-			t.ok(playerCompiledJsString.indexOf('var k=0') >= 0, 'The code above should have been replaced with this code.');
-			t.ok(playerCompiledJsString.indexOf('if(self!=top)a=a.replace("framewrap","portrait .framewrap").replace("interstitial","portrait .interstitial"),player.rotatePortraitFramedStyleSheet=document.createElement("style"),player.rotatePortraitFramedStyleSheet.innerHTML=a,document.body.appendChild(player.rotatePortraitFramedStyleSheet)') == -1, 'Should have removed this code');
+			t.ok(playerCompiledJsString.indexOf('var scoParserTop=self;') >= 0, 'Should find JS added at beginning of the file');
+			t.ok(playerCompiledJsString.lastIndexOf('scoParserTop.') > 0 && playerCompiledJsString.indexOf('scoParserTop.') != playerCompiledJsString.lastIndexOf('scoParserTop.'), 'Should find other instances of scoParserTop from the replacement later in the file');
+			t.ok(playerCompiledJsString.indexOf('window.scoParserOrientation=90;') >= 0, 'Should find JS added at beginning of the file');
+			t.ok(playerCompiledJsString.lastIndexOf('window.scoParserOrientation') > 0 && playerCompiledJsString.indexOf('window.scoParserOrientation') != playerCompiledJsString.lastIndexOf('window.scoParserOrientation'), 'Should find other instances of window.scoParserOrientation from the replacement later in the file');
 			t.end();
 		});
 	});
@@ -96,7 +95,6 @@ test('Successfully modifies a SCO that has the Captivate htm/html file that cont
 		processSco({pathOfManifest: pathToCopyFiles + '/imsmanifest.xml'}, function (err, result) {
 			t.notOk(err, 'Should not error');
 			var modifiedHtml = fs.readFileSync(pathToCopyFiles + '/captivate_noquiz_SWFandHTML5output.htm', {encoding: 'utf8'});
-			console.log(JSON.stringify(modifiedHtml));
 			t.ok(modifiedHtml.match(/<head>\s*<style>\s*html\s*\{\s*height:\s*100%\s*\}\s*body\s*\{\s*height:\s*100%;\s*width:\s*100%;\s*display:\s*table;\s*margin:\s*0\s*\}\s*#CaptivateContent\s*\{\s*display:\s*table-cell\s*;\s*height:\s*100%\s*;\s*vertical-align:\s*middle\s*}\s*<\/style>/), 'Should find CSS added to the head');
 			t.end();
 		});

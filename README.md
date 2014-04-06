@@ -2,7 +2,7 @@
 
 A simple validator and parser for SCO zip files written in [node](http://nodejs.org/)
 
-[ ![Codeship Status for Mindflash/node-sco-parser](https://www.codeship.io/projects/fb25b120-71b4-0131-0462-52ccdc259eef/status?branch=master)](https://www.codeship.io/projects/13589)
+[ ![Codeship Status for Mindflash/node-sco-parser](https://www.codeship.io/projects/fb25b120-71b4-0131-0462-52ccdc259eef/status?branch=master)](https://www.codeship.io/projects/13589) [![Build Status](https://travis-ci.org/Mindflash/node-sco-parser.png?branch=master)](https://travis-ci.org/Mindflash/node-sco-parser)
 
 ## Usage
 

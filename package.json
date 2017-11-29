@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/Mindflash/node-scorm-validator.git"
+		"url": "git://github.com/Mindflash/node-sco-parser.git"
 	},
 	"keywords": [
 		"SCORM",
@@ -22,9 +22,9 @@
 	"author": "Mindflash <npmjs@mindflash.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Mindflash/node-scorm-validator/issues"
+		"url": "https://github.com/Mindflash/node-sco-parser/issues"
 	},
-	"homepage": "https://github.com/Mindflash/node-scorm-validator",
+	"homepage": "https://github.com/Mindflash/node-sco-parser",
 	"devDependencies": {
 		"tap": "~0.4.8"
 	},

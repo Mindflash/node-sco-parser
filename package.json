@@ -1,6 +1,6 @@
 {
 	"name": "sco-parser",
-	"version": "0.0.2",
+	"version": "2.0.0",
 	"description": "A simple validator and parser for SCO zip files.",
 	"main": "index.js",
 	"directories": {

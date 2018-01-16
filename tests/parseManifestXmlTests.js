@@ -55,6 +55,20 @@ test('Parses expected information from Articulate SCO without quiz', function (t
 	});
 });
 
+test('Parses expected information from Articulate Rise SCO without quiz', function (t) {
+  var params = {pathOfManifest: 'testFiles/parseManifestXmlTests/articulate-rise/scoWithoutQuiz/imsmanifest.xml'};
+  parseManifestXml(params, function (err, result) {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive information parsed from the manifest XML');
+    t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
+    t.equal(result.scoHtmlHref, 'scormdriver/indexAPI.html', 'got a starting point');
+    t.equal(result.quizCount, 0, 'Recognize that no quiz exists in the sco');
+    t.notOk(result.thumbnailHref, 'Should not find thumbnail');
+    t.ok(result.filePaths.indexOf('scormcontent/assets/F7QWL2zlKMkxY1pb_2cxc4xpUr1zYWEf--iherb-logo.png') >= 0, 'Should find file referenced in manifest');
+    t.end();
+  });
+});
+
 test('Parses expected information from Captivate SCO with quiz', function (t) {
 	var params = {pathOfManifest: 'testFiles/parseManifestXmlTests/captivate/scoWithQuiz/imsmanifest.xml'};
 	parseManifestXml(params, function (err, result) {

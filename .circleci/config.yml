@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:4.8.7
-      working_directory: ~/repo
+      - working_directory: ~/repo
     steps:
       - checkout
       # Download and cache dependencies

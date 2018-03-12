@@ -5,8 +5,8 @@ var scoParserIndex = require('../index.js');
 var test = require('tap').test;
 
 var params = {
-  pathToScoZip: 'testFiles/unpackScoZipTests/articulate_sco_with_quiz.zip',
-  pathToExtractZip: 'testFiles/unpackScoZipTests/extractFolder'
+  pathToScoZip: 'tests/testFiles/unpackScoZipTests/articulate_sco_with_quiz.zip',
+  pathToExtractZip: 'tests/testFiles/unpackScoZipTests/extractFolder'
 };
 
 test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses it for information', function (t) {
@@ -44,4 +44,6 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
       t.end();
     });
   });
+
+  t.end();
 });

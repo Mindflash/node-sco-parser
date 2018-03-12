@@ -1,41 +1,44 @@
 {
-	"name": "sco-parser",
-	"version": "2.0.0",
-	"description": "A simple validator and parser for SCO zip files.",
-	"main": "index.js",
-	"directories": {
-		"test": "tests"
-	},
-	"scripts": {
-		"test": "tap tests/*.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/Mindflash/node-sco-parser.git"
-	},
-	"keywords": [
-		"SCORM",
-		"SCO",
-		"SCORM 1.2",
-		"LMS"
-	],
-	"author": "Mindflash <npmjs@mindflash.com>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Mindflash/node-sco-parser/issues"
-	},
-	"homepage": "https://github.com/Mindflash/node-sco-parser",
-	"devDependencies": {
-		"tap": "~0.4.8"
-	},
-	"dependencies": {
-		"adm-zip": "~0.4.4",
-		"async": "~0.2.10",
-		"lodash": "~2.4.1",
-		"rimraf": "~2.2.6",
-		"xml2js": "~0.4.1",
-		"xpath": "0.0.5",
-		"xmldom": "~0.1.19",
-		"fs-tools": "~0.2.11"
-	}
+  "name": "sco-parser",
+  "version": "2.0.0",
+  "description": "A simple validator and parser for SCO zip files.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tap tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Mindflash/node-sco-parser.git"
+  },
+  "keywords": [
+    "SCORM",
+    "SCO",
+    "SCORM 1.2",
+    "LMS"
+  ],
+  "author": "Mindflash <npmjs@mindflash.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mindflash/node-sco-parser/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "homepage": "https://github.com/Mindflash/node-sco-parser",
+  "devDependencies": {
+    "tap": "~0.4.8"
+  },
+  "dependencies": {
+    "adm-zip": "~0.4.4",
+    "async": "~0.2.10",
+    "lodash": "~2.4.1",
+    "rimraf": "~2.2.6",
+    "xml2js": "~0.4.1",
+    "xpath": "0.0.5",
+    "xmldom": "~0.1.19",
+    "fs-tools": "~0.2.11"
+  }
 }

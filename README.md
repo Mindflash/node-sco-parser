@@ -2,8 +2,6 @@
 
 A simple validator and parser for SCO zip files written in [node](http://nodejs.org/)
 
-[![Build Status](https://travis-ci.org/Mindflash/node-sco-parser.png?branch=master)](https://travis-ci.org/Mindflash/node-sco-parser)
-
 ## Usage
 
 	var params = {

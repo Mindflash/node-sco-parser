@@ -1,7 +1,7 @@
 "use strict";
 var test = require('tap').test;
 var readManifestXml = require('../lib/readManifestXml');
-var testFolder = 'testFiles/readManifestXmlTests';
+var testFolder = 'tests/testFiles/readManifestXmlTests';
 var _ = require('lodash');
 
 test('Validating the SCO will fail when initialized without params', function (t) {

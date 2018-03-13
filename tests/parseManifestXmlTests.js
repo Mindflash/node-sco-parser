@@ -1,25 +1,26 @@
-var _ = require('lodash');
-var parseManifestXml = require('../lib/parseManifestXml');
-var test = require('tap').test;
+/* eslint-disable prefer-destructuring */
+const _ = require('lodash');
+const parseManifestXml = require('../lib/parseManifestXml');
+const test = require('tap').test;
 
-test('Errors when you don\'t pass any parameters', function (t) {
-  parseManifestXml(null, function (err, result) {
+test('Errors when you don\'t pass any parameters', (t) => {
+  parseManifestXml(null, (err) => {
     t.ok(err, 'Should error');
     t.equal(err, 'Requires a path to the SCO manifest');
     t.end();
   });
 });
 
-test('Errors when you don\'t pass the path of the manifest', function (t) {
-  parseManifestXml({}, function (err, result) {
+test('Errors when you don\'t pass the path of the manifest', (t) => {
+  parseManifestXml({}, (err) => {
     t.ok(err, 'Should error');
     t.equal(err, 'Requires a path to the SCO manifest');
     t.end();
   });
 });
 
-test('Errors when you pass a fake path to the manifest', function (t) {
-  parseManifestXml({ pathOfManifest: '/fake/path/to/imsmanifest.xml' }, function (err, result) {
+test('Errors when you pass a fake path to the manifest', (t) => {
+  parseManifestXml({ pathOfManifest: '/fake/path/to/imsmanifest.xml' }, (err) => {
     t.ok(err, 'Should error');
     t.equals(err.code, 'ENOENT', 'Should error about not being able to open the file');
     t.ok(_.contains(err.path, 'fake'), 'Should error about not being able to open the file');
@@ -27,9 +28,9 @@ test('Errors when you pass a fake path to the manifest', function (t) {
   });
 });
 
-test('Parses expected information from Articulate SCO with quiz', function (t) {
-  var params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithQuiz/imsmanifest.xml' };
-  parseManifestXml(params, function (err, result) {
+test('Parses expected information from Articulate SCO with quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
     t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
@@ -41,9 +42,9 @@ test('Parses expected information from Articulate SCO with quiz', function (t) {
   });
 });
 
-test('Parses expected information from Articulate SCO without quiz', function (t) {
-  var params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithoutQuiz/imsmanifest.xml' };
-  parseManifestXml(params, function (err, result) {
+test('Parses expected information from Articulate SCO without quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithoutQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
     t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
@@ -55,9 +56,9 @@ test('Parses expected information from Articulate SCO without quiz', function (t
   });
 });
 
-test('Parses expected information from Articulate Rise SCO without quiz', function (t) {
-  var params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate-rise/scoWithoutQuiz/imsmanifest.xml' };
-  parseManifestXml(params, function (err, result) {
+test('Parses expected information from Articulate Rise SCO without quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate-rise/scoWithoutQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
     t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
@@ -69,9 +70,9 @@ test('Parses expected information from Articulate Rise SCO without quiz', functi
   });
 });
 
-test('Parses expected information from Captivate SCO with quiz', function (t) {
-  var params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithQuiz/imsmanifest.xml' };
-  parseManifestXml(params, function (err, result) {
+test('Parses expected information from Captivate SCO with quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
     t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
@@ -83,9 +84,9 @@ test('Parses expected information from Captivate SCO with quiz', function (t) {
   });
 });
 
-test('Parses expected information from Captivate SCO without quiz', function (t) {
-  var params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithoutQuiz/imsmanifest.xml' };
-  parseManifestXml(params, function (err, result) {
+test('Parses expected information from Captivate SCO without quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithoutQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
     t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');

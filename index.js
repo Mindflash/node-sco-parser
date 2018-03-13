@@ -1,43 +1,43 @@
-'use strict';
-var _ = require('lodash');
-var async = require('async');
-var rmrf = require('rimraf');
-var processSco = require('./lib/processSco.js');
-var parseManifestXml = require('./lib/parseManifestXml.js');
-var readManifestXml = require('./lib/readManifestXml.js');
-var unpackScoZip = require('./lib/unpackScoZip.js');
+/* eslint-disable consistent-return, comma-dangle */
+const _ = require('lodash');
+const async = require('async');
+const rmrf = require('rimraf');
+const processSco = require('./lib/processSco.js');
+const parseManifestXml = require('./lib/parseManifestXml.js');
+const readManifestXml = require('./lib/readManifestXml.js');
+const unpackScoZip = require('./lib/unpackScoZip.js');
 
 function scoParser(params) {
-  params = params || {};
+  const p = params || {};
 
   function validate(cb) {
     async.series({
-      unpackScoZip: _.curry(unpackScoZip)(params),
-      manifest: _.curry(readManifestXml)(params)
-    }, function (err, result) {
+      unpackScoZip: _.curry(unpackScoZip)(p),
+      manifest: _.curry(readManifestXml)(p)
+    }, (err, result) => {
       if (err) cb(err);
       cb(null, result.manifest);
     });
   }
 
   function parse(cb) {
-    parseManifestXml(params, cb);
+    parseManifestXml(p, cb);
   }
 
   function process(cb) {
-    processSco(params, cb);
+    processSco(p, cb);
   }
 
   function destroy(cb) {
-    if (!params.pathToExtractZip) return cb();
-    rmrf(params.pathToExtractZip, cb);
+    if (!p.pathToExtractZip) return cb();
+    rmrf(p.pathToExtractZip, cb);
   }
 
   return {
-    validate: validate,
-    parse: parse,
-    process: process,
-    destroy: destroy
+    validate,
+    parse,
+    process,
+    destroy
   };
 }
 

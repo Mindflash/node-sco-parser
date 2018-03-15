@@ -80,7 +80,7 @@ test('Does not error when referencing a SCO that doesn\'t have the Captivate SCO
 test('Successfully modifies a SCO that has the Captivate SCORM_utilities.js', (t) => {
   t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/captivateOutput'));
 
-  t.test('Should find modfied text in the Captivate SCORM_utilities.js', (t) => {
+  t.test('Should find modified text in the Captivate SCORM_utilities.js', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
       t.notOk(err, 'Should not error');
       const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/SCORM_utilities.js`, { encoding: 'utf8' });
@@ -139,9 +139,26 @@ test('Successfully modifies a SCO that has the Storyline story.html', (t) => {
   t.end();
 });
 
+test('Successfully modifies a SCO that has the Articulate Rise content', (t) => {
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/articulateRiseOutput'));
+
+  t.test('Should find modified text in the Rise scormdriver.js file', (t) => {
+    processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
+      t.notOk(err, 'Should not error');
+      t.equal(result, 'articulate_rise');
+      const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/scormdriver/scormdriver.js`, { encoding: 'utf8' });
+      t.ok(playerCompiledJsString.indexOf('scoParserTop.') >= 0, 'Should find sco parser top');
+      t.end();
+    });
+  });
+
+  t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+  t.end();
+});
+
 function copyFilesToProcessingLocation(pathOfTestFiles, t) {
   fstools.copy(pathOfTestFiles, pathToCopyFiles, (err) => {
-    if (err) t.fail('Failed to copy files to process');
+  if (err) t.fail('Failed to copy files to process');
     t.end();
   });
 }

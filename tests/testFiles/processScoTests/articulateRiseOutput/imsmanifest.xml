@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<manifest identifier="RusticiSoftwareSCORMDriverTemplate" version="1"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                      http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                      http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <adlcp:location>metadata.xml</adlcp:location>
+  </metadata>
+  <organizations default="articulate_rise">
+      <organization identifier="articulate_rise">
+      <title>AvidInvoice</title>
+      <item identifier="i1" identifierref="r1" isvisible="true">
+        <title>AvidInvoice</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="r1" type="webcontent" adlcp:scormtype="sco" href="scormdriver/indexAPI.html">
+      <!-- SCORMDRIVER STUFF -->
+      <file href="scormdriver/indexAPI.html" />
+      <file href="scormdriver/AICCComm.html" />
+      <file href="scormdriver/auto-scripts/AutoBookmark.js" />
+      <file href="scormdriver/auto-scripts/AutoCompleteSCO.js" />
+      <file href="scormdriver/auto-scripts/CourseExit.js" />
+      <file href="scormdriver/blank.html" />
+      <file href="scormdriver/goodbye.html" />
+      <file href="scormdriver/scormdriver.js" />
+      <file href="scormdriver/browsersniff.js" />
+
+      <!-- RUNTIME COMMON STUFF -->
+      <file href="scormcontent/index.html" />
+      <file href="scormcontent/lib/main.bundle.js"/>
+
+      
+        <file href="scormcontent/lib/fonts/icomoon.ttf"/>
+        <file href="scormcontent/lib/fonts/icomoon.woff"/>
+
+        <file href="scormcontent/lib/icomoon.css"/>
+        <file href="scormcontent/lib/main.bundle.css"/>
+        <file href="scormcontent/lib/player-0.0.11.min.js"/>
+      
+
+      <!-- RUNTIME CONTENT STUFF -->
+      <file href="scormcontent/lib/fonts/Lato-Light.woff" />
+<file href="scormcontent/lib/fonts/Lato-Regular.woff" />
+<file href="scormcontent/lib/fonts/Lato-Bold.woff" />
+<file href="scormcontent/lib/fonts/Lato-Italic.woff" />
+<file href="scormcontent/lib/fonts/Lato-Black.woff" />
+<file href="scormcontent/assets/404sZydBjZbfC8Vi_small_1510082040.png" />
+<file href="scormcontent/assets/F7QWL2zlKMkxY1pb_2cxc4xpUr1zYWEf--iherb-logo.png" />
+<file href="scormcontent/assets/sxZjEQquPp60_8EI_transcoded-HBApubVtXskdDC2a-avid-invoice-what-is-avid-invoice-00001.png" />
+<file href="scormcontent/assets/aNwDJ5GDU3EnqJeR_transcoded-HBApubVtXskdDC2a-avid-invoice-what-is-avid-invoice.mp4" />
+<file href="scormcontent/assets/4B7OFPcoYtY82x9R_transcoded-xMMplOn-rg_w_nWj-avid-invoice-login-00001.png" />
+<file href="scormcontent/assets/_faZcKlBVCB-ELHv_transcoded-xMMplOn-rg_w_nWj-avid-invoice-login.mp4" />
+<file href="scormcontent/assets/ffEFPgTWUvIfJPDz_transcoded-qrwQkVcjf4HGJOGG-avid-invoice-approve-invoice-00001.png" />
+<file href="scormcontent/assets/mkf7N5n7jeWXMs1L_transcoded-qrwQkVcjf4HGJOGG-avid-invoice-approve-invoice.mp4" />
+<file href="scormcontent/assets/CmFgwQJGlxRfCffW_transcoded-MfTuDP-MaaLqn3IL-avid-invoice-change-approver-00001.png" />
+<file href="scormcontent/assets/mbg8MPKxVpDJ-HjO_transcoded-MfTuDP-MaaLqn3IL-avid-invoice-change-approver.mp4" />
+<file href="scormcontent/assets/7par8SqN2ahOYjXY_transcoded-M2J31y_RuAR1P8b5-avid-invoice-search-00001.png" />
+<file href="scormcontent/assets/9JWO41d0gbnxs2Ww_transcoded-M2J31y_RuAR1P8b5-avid-invoice-search.mp4" />
+<file href="scormcontent/assets/7Yp1gCCGboJ6yk0l_JHY4200IUCioFI59-avid-invoice-for-i-herb-user-training-guide.docx" />
+<file href="scormcontent/assets/XMeq5RIKOQKccNCq_3pxgOafUR0hZhIlQ.jpg" />
+
+    </resource>
+  </resources>
+</manifest>

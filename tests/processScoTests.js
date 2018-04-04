@@ -139,15 +139,13 @@ test('Successfully modifies a SCO that has the Storyline story.html', (t) => {
   t.end();
 });
 
-test('Successfully modifies a SCO that has the Articulate Rise content', (t) => {
+test('Successfully return the type of SCO that has the Articulate Rise content', (t) => {
   t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/articulateRiseOutput'));
 
   t.test('Should find modified text in the Rise scormdriver.js file', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
       t.notOk(err, 'Should not error');
       t.equal(result, 'articulate_rise');
-      // const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/scormdriver/scormdriver.js`, { encoding: 'utf8' });
-      // t.ok(playerCompiledJsString.indexOf('scoParserTop.') >= 0, 'Should find sco parser top');
       t.end();
     });
   });

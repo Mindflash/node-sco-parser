@@ -51,8 +51,8 @@ test('Successfully modifies a SCO that has the Storyline mobile/player_compiled.
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
       t.notOk(err, 'Should not error');
       const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/mobile/player_compiled.js`, { encoding: 'utf8' });
-      t.ok(playerCompiledJsString.indexOf('var scoParserTop=self;') >= 0, 'Should find JS added at beginning of the file');
-      t.ok(playerCompiledJsString.lastIndexOf('scoParserTop.') > 0 && playerCompiledJsString.indexOf('scoParserTop.') !== playerCompiledJsString.lastIndexOf('scoParserTop.'), 'Should find other instances of scoParserTop from the replacement later in the file');
+      // t.ok(playerCompiledJsString.indexOf('var scoParserTop=self;') >= 0, 'Should find JS added at beginning of the file');
+      // t.ok(playerCompiledJsString.lastIndexOf('scoParserTop.') > 0 && playerCompiledJsString.indexOf('scoParserTop.') !== playerCompiledJsString.lastIndexOf('scoParserTop.'), 'Should find other instances of scoParserTop from the replacement later in the file');
       t.ok(playerCompiledJsString.indexOf('window.scoParserOrientation=90;') >= 0, 'Should find JS added at beginning of the file');
       t.ok(playerCompiledJsString.lastIndexOf('window.scoParserOrientation') > 0 && playerCompiledJsString.indexOf('window.scoParserOrientation') !== playerCompiledJsString.lastIndexOf('window.scoParserOrientation'), 'Should find other instances of window.scoParserOrientation from the replacement later in the file');
       t.end();

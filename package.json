@@ -32,7 +32,7 @@
     "tap": "^11.1.2"
   },
   "dependencies": {
-    "adm-zip": "~0.4.4",
+    "adm-zip": "0.4.4",
     "async": "^2.6.0",
     "fs-tools": "^0.3.0",
     "lodash": "~2.4.1",

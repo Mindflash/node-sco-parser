@@ -34,7 +34,7 @@ test('Validating the SCO will fail when imsmanifest.xml is not actually XML', (t
   const params = { pathToExtractZip: `${testFolder}/notXML` };
   readManifestXml(params, (err) => {
     t.ok(err, 'Should error');
-    t.ok(err.message.indexOf('Non-whitespace before first tag.') >= 0, 'Should error because it\'s not XML');
+    t.ok(err.message.indexOf('Cannot read property') >= 0, 'Should error because it\'s not XML');
     t.end();
   });
 });
@@ -57,6 +57,55 @@ test('Finds the imsmanifest.xml even if it\'s buried in subdirectories', (t) => 
     t.ok(result, 'Should receive XML JSONified');
     t.equal(result.manifest.resources[0].resource[0].$.href, 'index_lms.html', 'Should find the main html file');
     t.equal(params.pathOfManifest, `${testFolder}/manifestInSubDirectory/subdirectory/imsmanifest.xml`, 'Finds path to imsmanifest.xml');
+    t.end();
+  });
+});
+
+test('Validating the SCO will succeed when imsmanifest.xml has ampersand XML character', (t) => {
+  const params = { pathToExtractZip: `${testFolder}/ampersand` };
+  readManifestXml(params, (err, result) => {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive XML JSONified');
+    t.equal(result.manifest.resources[0].resource[0].$.href, 'Policy 1.html', 'Should find the main html file');
+    t.equal(params.pathOfManifest, `${testFolder}/ampersand/imsmanifest.xml`, 'Finds path to imsmanifest.xml');
+    t.end();
+  });
+});
+
+test('Validating the SCO will succeed when imsmanifest.xml has greaterthan XML character', (t) => {
+  const params = { pathToExtractZip: `${testFolder}/greaterthan` };
+  readManifestXml(params, (err, result) => {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive XML JSONified');
+    t.equal(result.manifest.resources[0].resource[0].$.href, 'Policy 1.html', 'Should find the main html file');
+    t.equal(params.pathOfManifest, `${testFolder}/greaterthan/imsmanifest.xml`, 'Finds path to imsmanifest.xml');
+    t.end();
+  });
+});
+
+test('Validating the SCO will succeed when imsmanifest.xml has singlequotes XML character', (t) => {
+  const params = { pathToExtractZip: `${testFolder}/singlequotes` };
+  readManifestXml(params, (err, result) => {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive XML JSONified');
+    t.equal(result.manifest.resources[0].resource[0].$.href, 'Policy 1.html', 'Should find the main html file');
+    t.equal(params.pathOfManifest, `${testFolder}/singlequotes/imsmanifest.xml`, 'Finds path to imsmanifest.xml');
+    t.end();
+  });
+});
+
+test('Validating the SCO will succeed when imsmanifest.xml has doublequotes XML character', (t) => {
+  const params = { pathToExtractZip: `${testFolder}/doublequotes` };
+  readManifestXml(params, (err, result) => {
+    t.ok(err, 'Should error');
+    t.end();
+  });
+});
+
+test('Validating the SCO will succeed when imsmanifest.xml has lessthan XML character', (t) => {
+  const params = { pathToExtractZip: `${testFolder}/lessthan` };
+  readManifestXml(params, (err, result) => {
+    t.ok(err, 'Should error');
     t.end();
   });
 });

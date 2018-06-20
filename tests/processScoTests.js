@@ -53,8 +53,6 @@ test('Successfully modifies a SCO that has the Storyline mobile/player_compiled.
       const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/mobile/player_compiled.js`, { encoding: 'utf8' });
       t.ok(playerCompiledJsString.indexOf('var scoParserTop=self;') >= 0, 'Should find JS added at beginning of the file');
       t.ok(playerCompiledJsString.lastIndexOf('scoParserTop.') > 0 && playerCompiledJsString.indexOf('scoParserTop.') !== playerCompiledJsString.lastIndexOf('scoParserTop.'), 'Should find other instances of scoParserTop from the replacement later in the file');
-      t.ok(playerCompiledJsString.indexOf('window.scoParserOrientation=90;') >= 0, 'Should find JS added at beginning of the file');
-      t.ok(playerCompiledJsString.lastIndexOf('window.scoParserOrientation') > 0 && playerCompiledJsString.indexOf('window.scoParserOrientation') !== playerCompiledJsString.lastIndexOf('window.scoParserOrientation'), 'Should find other instances of window.scoParserOrientation from the replacement later in the file');
       t.end();
     });
   });
@@ -127,8 +125,9 @@ test('Successfully modifies a SCO that has the Storyline story.html', (t) => {
   t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/storylineHtml5Output'));
 
   t.test('Should find modfied text in the Storyline story.html', (t) => {
-    processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
+    processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
       t.notOk(err, 'Should not error');
+      t.equal(result, 'storyline_mobile');
       const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/story.html`, { encoding: 'utf8' });
       t.ok(playerCompiledJsString.indexOf('g_strWMode = "opaque"') >= 0, 'Should find g_strWMode config now set to opaque');
       t.end();

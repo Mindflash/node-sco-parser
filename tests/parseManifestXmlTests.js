@@ -111,3 +111,31 @@ test('Parses expected information from Captivate SCO without quiz', (t) => {
     t.end();
   });
 });
+
+test('Parses expected information from Camtasia SCO with quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/camtasia/scoWithQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive information parsed from the manifest XML');
+    t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
+    t.equal(result.scoHtmlHref, 'Camtasia with Quiz.html', 'got a starting point');
+    t.equal(result.quizCount, 1, 'Recognize a quiz exists in the sco');
+    t.ok(result.thumbnailHref, 'Should find thumbnail');
+    t.ok(result.filePaths.indexOf('scripts/config_xml.js') >= 0, 'Should find file referenced in manifest');
+    t.end();
+  });
+});
+
+test('Parses expected information from Camtasia SCO with quiz', (t) => {
+  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/camtasia/scoWithoutQuiz/imsmanifest.xml' };
+  parseManifestXml(params, (err, result) => {
+    t.notOk(err, 'Should not error');
+    t.ok(result, 'Should receive information parsed from the manifest XML');
+    t.equal(result.pathOfManifest, params.pathOfManifest, 'Should return the path of the manifest');
+    t.equal(result.scoHtmlHref, 'Camtasia with Quiz.html', 'got a starting point');
+    t.equal(result.quizCount, 0, 'No quiz');
+    t.ok(result.thumbnailHref, 'Should find thumbnail');
+    t.ok(result.filePaths.indexOf('scripts/config_xml.js') >= 0, 'Should find file referenced in manifest');
+    t.end();
+  });
+});

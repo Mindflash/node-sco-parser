@@ -5,7 +5,7 @@ const fstools = require('fs-tools');
 const processSco = require('../lib/processSco.js');
 const test = require('tap').test;
 
-const pathToCopyFiles = 'tests/testFiles/processScoTests/tmp';
+const pathToCopyFiles = 'tests/fixtures/processScoTests/tmp';
 
 test('Errors when you don\'t pass any parameters', (t) => {
   processSco(null, (err) => {
@@ -24,7 +24,7 @@ test('Errors when you don\'t pass the path of the manifest', (t) => {
 });
 
 test('Does not error when referencing a SCO that doesn\'t have the Storyline mobile/player_compiled.js', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/nonSpecificOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/nonSpecificOutput'));
 
   t.test('Does not error when referencing a SCO that doesn\'t have the Storyline mobile/player_compiled.js', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
@@ -38,7 +38,7 @@ test('Does not error when referencing a SCO that doesn\'t have the Storyline mob
 });
 
 test('Successfully modifies a SCO that has the Storyline mobile/player_compiled.js', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/storylineHtml5Output'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/storylineHtml5Output'));
 
   t.test('Should have code that\'s prior to processing', (t) => {
     const playerCompiledJsString = fs.readFileSync(`${pathToCopyFiles}/mobile/player_compiled.js`, { encoding: 'utf8' });
@@ -62,7 +62,7 @@ test('Successfully modifies a SCO that has the Storyline mobile/player_compiled.
 });
 
 test('Does not error when referencing a SCO that doesn\'t have the Captivate SCORM_utilities.js', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/nonSpecificOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/nonSpecificOutput'));
 
   t.test('Does not error when referencing a SCO that doesn\'t have the Captivate SCORM_utilities.js', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
@@ -76,7 +76,7 @@ test('Does not error when referencing a SCO that doesn\'t have the Captivate SCO
 });
 
 test('Successfully modifies a SCO that has the Captivate SCORM_utilities.js', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/captivateOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/captivateOutput'));
 
   t.test('Should find modified text in the Captivate SCORM_utilities.js', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
@@ -92,7 +92,7 @@ test('Successfully modifies a SCO that has the Captivate SCORM_utilities.js', (t
 });
 
 test('Successfully modifies a SCO that has the Captivate htm/html file that contains the CaptivateContent ID on one of its elements', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/captivateOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/captivateOutput'));
 
   t.test('Should find modfied text in the Captivate SCORM_utilities.js', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
@@ -108,7 +108,7 @@ test('Successfully modifies a SCO that has the Captivate htm/html file that cont
 });
 
 test('Does not error when referencing a SCO that doesn\'t have the Storyline story.html', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/nonSpecificOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/nonSpecificOutput'));
 
   t.test('Does not error when referencing a SCO that doesn\'t have the Storyline story.html', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err) => {
@@ -122,7 +122,7 @@ test('Does not error when referencing a SCO that doesn\'t have the Storyline sto
 });
 
 test('Successfully modifies a SCO that has the Storyline story.html', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/storylineHtml5Output'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/storylineHtml5Output'));
 
   t.test('Should find modfied text in the Storyline story.html', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
@@ -139,7 +139,7 @@ test('Successfully modifies a SCO that has the Storyline story.html', (t) => {
 });
 
 test('Successfully modifies a SCO that has the Articulate Rise content', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/articulateRiseOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/articulateRiseOutput'));
 
   t.test('Should find modified text in the Rise scormdriver.js file', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
@@ -156,7 +156,7 @@ test('Successfully modifies a SCO that has the Articulate Rise content', (t) => 
 });
 
 test('Successfully checks for a camtasia SCO', (t) => {
-  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/camtasiaOutput'));
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/camtasiaOutput'));
 
   t.test('Should return the camtasia type of content', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {

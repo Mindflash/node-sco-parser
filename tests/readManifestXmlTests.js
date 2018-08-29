@@ -2,7 +2,7 @@
 const test = require('tap').test;
 const readManifestXml = require('../lib/readManifestXml');
 
-const testFolder = 'tests/testFiles/readManifestXmlTests';
+const testFolder = 'tests/fixtures/readManifestXmlTests';
 
 test('Validating the SCO will fail when initialized without params', (t) => {
   readManifestXml(null, (err) => {

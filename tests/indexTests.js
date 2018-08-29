@@ -6,8 +6,8 @@ const test = require('tap').test;
 
 test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses it for information', (t) => {
   const params = {
-    pathToScoZip: 'tests/testFiles/unpackScoZipTests/articulate_sco_with_quiz.zip',
-    pathToExtractZip: 'tests/testFiles/unpackScoZipTests/extractFolder'
+    pathToScoZip: 'tests/fixtures/unpackScoZipTests/articulate_sco_with_quiz.zip',
+    pathToExtractZip: 'tests/fixtures/unpackScoZipTests/extractFolder'
   };
   const scoParser = scoParserIndex(params);
 
@@ -50,8 +50,8 @@ test('Successfully unpacks SCO zip file, validates imsmanifest.xml, and parses i
 
 test('Successfully unpacks articulate rise SCO zip file, validates imsmanifest.xml, and parses it for information', (t) => {
   const params = {
-    pathToScoZip: 'tests/testFiles/unpackScoZipTests/articulate_rise_with_quiz.zip',
-    pathToExtractZip: 'tests/testFiles/unpackScoZipTests/extractFolder'
+    pathToScoZip: 'tests/fixtures/unpackScoZipTests/articulate_rise_with_quiz.zip',
+    pathToExtractZip: 'tests/fixtures/unpackScoZipTests/extractFolder'
   };
   const scoParser = scoParserIndex(params);
 

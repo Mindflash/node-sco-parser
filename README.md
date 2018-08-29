@@ -5,8 +5,8 @@ A simple validator and parser for SCO zip files written in [node](http://nodejs.
 ## Usage
 
 	var params = {
-		pathToScoZip: 'testFiles/unpackScoZipTests/articulate_sco_with_quiz.zip',
-		pathToExtractZip: 'testFiles/unpackScoZipTests/extractFolder'
+		pathToScoZip: 'fixtures/unpackScoZipTests/articulate_sco_with_quiz.zip',
+		pathToExtractZip: 'fixtures/unpackScoZipTests/extractFolder'
 	}
 
 	// initialize the parser

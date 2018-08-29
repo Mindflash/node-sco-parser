@@ -155,6 +155,21 @@ test('Successfully modifies a SCO that has the Articulate Rise content', (t) => 
   t.end();
 });
 
+test('Successfully checks for a camtasia SCO', (t) => {
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/testFiles/processScoTests/camtasiaOutput'));
+
+  t.test('Should find modified text in the Rise scormdriver.js file', (t) => {
+    processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
+      t.notOk(err, 'Should not error');
+      t.equal(result, 'camtasia');
+      t.end();
+    });
+  });
+
+  t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+  t.end();
+});
+
 function copyFilesToProcessingLocation(pathOfTestFiles, t) {
   fstools.copy(pathOfTestFiles, pathToCopyFiles, (err) => {
   if (err) t.fail('Failed to copy files to process');

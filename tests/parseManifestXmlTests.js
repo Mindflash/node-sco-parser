@@ -29,7 +29,7 @@ test('Errors when you pass a fake path to the manifest', (t) => {
 });
 
 test('Parses expected information from Articulate SCO with quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/articulate/scoWithQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -43,7 +43,7 @@ test('Parses expected information from Articulate SCO with quiz', (t) => {
 });
 
 test('Parses expected information from Articulate SCO without quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate/scoWithoutQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/articulate/scoWithoutQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -57,7 +57,7 @@ test('Parses expected information from Articulate SCO without quiz', (t) => {
 });
 
 test('Parses expected information from Articulate Rise SCO without quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate-rise/scoWithoutQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/articulate-rise/scoWithoutQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -71,7 +71,7 @@ test('Parses expected information from Articulate Rise SCO without quiz', (t) =>
 });
 
 test('Parses expected information from Articulate Rise SCO with quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/articulate-rise/scoWithQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/articulate-rise/scoWithQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -85,7 +85,7 @@ test('Parses expected information from Articulate Rise SCO with quiz', (t) => {
 });
 
 test('Parses expected information from Captivate SCO with quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/captivate/scoWithQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -99,7 +99,7 @@ test('Parses expected information from Captivate SCO with quiz', (t) => {
 });
 
 test('Parses expected information from Captivate SCO without quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/captivate/scoWithoutQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/captivate/scoWithoutQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -113,7 +113,7 @@ test('Parses expected information from Captivate SCO without quiz', (t) => {
 });
 
 test('Parses expected information from Camtasia SCO with quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/camtasia/scoWithQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/camtasia/scoWithQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');
@@ -127,7 +127,7 @@ test('Parses expected information from Camtasia SCO with quiz', (t) => {
 });
 
 test('Parses expected information from Camtasia SCO with quiz', (t) => {
-  const params = { pathOfManifest: 'tests/testFiles/parseManifestXmlTests/camtasia/scoWithoutQuiz/imsmanifest.xml' };
+  const params = { pathOfManifest: 'tests/fixtures/parseManifestXmlTests/camtasia/scoWithoutQuiz/imsmanifest.xml' };
   parseManifestXml(params, (err, result) => {
     t.notOk(err, 'Should not error');
     t.ok(result, 'Should receive information parsed from the manifest XML');

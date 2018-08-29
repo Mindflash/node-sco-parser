@@ -3,8 +3,8 @@ const fs = require('fs');
 const test = require('tap').test;
 const unpackScoZip = require('../lib/unpackScoZip');
 
-const testFolder = 'tests/testFiles/unpackScoZipTests';
-const pathToExtractZip = 'tests/testFiles/unpackScoZipTests/extractFolder';
+const testFolder = 'tests/fixtures/unpackScoZipTests';
+const pathToExtractZip = 'tests/fixtures/unpackScoZipTests/extractFolder';
 const rmrf = require('rimraf');
 
 test('Unpacking the SCO zip file will fail when initialized without params', (t) => {

@@ -155,13 +155,28 @@ test('Successfully modifies a SCO that has the Articulate Rise content', (t) => 
   t.end();
 });
 
-test('Successfully checks for a camtasia SCO', (t) => {
+test('Successfully checks for a camtasia SCO without a quiz', (t) => {
   t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/camtasiaOutput'));
 
   t.test('Should return the camtasia type of content', (t) => {
     processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
       t.notOk(err, 'Should not error');
       t.equal(result, 'camtasia');
+      t.end();
+    });
+  });
+
+  t.test('Should remove temporary files copied for processing', removeTempProcessingLocation);
+  t.end();
+});
+
+test('Successfully checks for a camtasia SCO with a quiz', (t) => {
+  t.test('Should copy files for processing', _.curry(copyFilesToProcessingLocation)('tests/fixtures/processScoTests/camtasiaOutput_withQuiz'));
+
+  t.test('Should return the camtasia type of content', (t) => {
+    processSco({ pathOfManifest: `${pathToCopyFiles}/imsmanifest.xml` }, (err, result) => {
+      t.notOk(err, 'Should not error');
+      t.equal(result, 'camtasia_quiz');
       t.end();
     });
   });

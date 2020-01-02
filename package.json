@@ -32,7 +32,7 @@
     "tap": "^11.1.2"
   },
   "dependencies": {
-    "adm-zip": "0.4.4",
+    "adm-zip": "0.4.13",
     "async": "^2.6.0",
     "bluebird": "^3.5.3",
     "fs-tools": "^0.3.0",

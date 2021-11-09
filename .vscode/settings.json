@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "learn-sonarqube.tsplatform.io",
+    "projectKey": "node-sco-parser"
+  }
+}

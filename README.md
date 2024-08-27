@@ -22,6 +22,10 @@ A simple validator and parser for SCO zip files written in [node](http://nodejs.
 		});
 	});
 
+We created a command line utility for quickly validating scorm files. It can be used as follows:
+
+	npm run verify queryObject.path fixtures/unpackScoZipTests/articulate_sco_with_quiz.zip
+
 ## Params
 
 Initialize the parser.
